@@ -1,0 +1,1 @@
+<textarea class="trtr-forum-thread" name="body">Delete this text and enter comment here</textarea>

@@ -1,0 +1,1 @@
+<textarea id="trtr-article" name="body">{!! $body ? $body : 'Enter text here' !!}</textarea>
