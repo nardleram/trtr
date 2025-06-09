@@ -19,7 +19,7 @@
 
             <form action="{{ route('articles.love') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="category" value="love–wisdom–health">
+                <input type="hidden" name="category" value="love">
                 <button type="submit" class="px-2 py-1 text-xs bg-emerald-100 rounded-md transition-colors delay-100 hover:text-white hover:bg-emerald-600 duration-250">love–wisdom–health</button>
             </form>
 

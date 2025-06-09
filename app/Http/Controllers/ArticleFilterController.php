@@ -19,7 +19,7 @@ class ArticleFilterController extends Controller
     {
         SEOMeta::setTitle('Articles');
 
-        return view('articles.index')->with('category', $request->category);
+        return view('articles.index')->with('category', 'love-wisdom-health');
     }
 
     public function group(ArticleFilterRequest $request): View
