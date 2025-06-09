@@ -73,19 +73,6 @@ class CommentService
         return $comment;
     }
 
-    // public function update(Comment $comment, CommentDto $dto)
-    // {
-    //     return tap($comment)->update([
-    //         'body' => $dto->body,
-    //         'user_id' => $dto->user_id,
-    //         'commentable_id' => $dto->commentable_id,
-    //         'commentable_type' => $dto->commentable_type,
-    //         'parent_id' => $dto->parent_id,
-    //         'parent_type' => $dto->parent_type,
-    //         'indent_level' => $dto->indent_level,
-    //     ]);
-    // }
-
     public function nestComments($id, $model) {
 
         $rawComments = Comment::where('comments.commentable_type', '=', $model)

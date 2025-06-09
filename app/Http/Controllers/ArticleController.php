@@ -34,7 +34,7 @@ class ArticleController extends Controller
 
     public function store(ArticleRequest $request): RedirectResponse
     {
-        if ( auth()->user()->role_id !== UserRole::Admin->value || 
+        if ( auth()->user()->role_id !== UserRole::Admin->value && 
              auth()->user()->role_id !== UserRole::Author->value ) {
             abort(401, 'You are not authorised to perform this action.');
         }
@@ -71,7 +71,7 @@ class ArticleController extends Controller
 
     public function edit(Article $article): View
     {
-        if (!$article->user_id !== auth()->id()) {
+        if ($article->user_id !== auth()->id()) {
             abort(401, 'You are not authorised to perform this action.');
         }
 
