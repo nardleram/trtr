@@ -7,13 +7,13 @@ use App\Http\Requests\CommentRequest;
 readonly class CommentDto
 {
     public function __construct(
-        public readonly string $body,
-        public readonly string $user_id,
-        public readonly int $commentable_id,
-        public readonly string $commentable_type,
-        public readonly int $parent_id,
-        public readonly string $parent_type,
-        public readonly int $indent_level
+        public string $body,
+        public string $user_id,
+        public int $commentable_id,
+        public string $commentable_type,
+        public int $parent_id,
+        public string $parent_type,
+        public int $indent_level
     ) {}
 
     public static function fromRequest(CommentRequest $request): self

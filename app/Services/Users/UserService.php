@@ -21,7 +21,7 @@ class UserService
             'role_id' => $dto->role_id
         ]);
 
-        $user ?? Notification::send(User::where('role_id', UserRole::Admin->value)->get(), new NewRegistrant($user));
+        $user ?? Notification::send(User::where('role_id', UserRole::Admin->value)->first(), new NewRegistrant($user));
 
         return $user;
     }

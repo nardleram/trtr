@@ -7,10 +7,10 @@ use App\Http\Requests\UpdateUserRequest;
 readonly class UpdateUserDto
 {
     public function __construct(
-        public readonly string $name,
-        public readonly string $email,
-        public readonly string $password,
-        public readonly ?string $newpassword
+        public string $name,
+        public string $email,
+        public string $password,
+        public ?string $newpassword
     ) {}
 
     public static function fromRequest(UpdateUserRequest $request): self

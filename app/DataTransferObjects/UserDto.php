@@ -7,10 +7,10 @@ use App\Http\Requests\UserRequest;
 readonly class UserDto
 {
     public function __construct(
-        public readonly string $name,
-        public readonly string $email,
-        public readonly string $password,
-        public readonly int $role_id
+        public string $name,
+        public string $email,
+        public string $password,
+        public int $role_id
     ) {}
 
     public static function fromRequest(UserRequest $request): self
