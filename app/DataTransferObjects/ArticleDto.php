@@ -9,14 +9,14 @@ use Illuminate\Http\UploadedFile;
 readonly class ArticleDto
 {
     public function __construct(
-        public string $title,
-        public ?UploadedFile $main_image,
-        public string $category,
-        public string $seo,
-        public string $keywords,
-        public string $body,
-        public string $user_id,
-        public ArticleSource $source,
+        public readonly string $title,
+        public  readonly UploadedFile $main_image,
+        public readonly string $category,
+        public readonly string $seo,
+        public readonly string $keywords,
+        public readonly string $body,
+        public readonly string $user_id,
+        public readonly ArticleSource $source,
     ) {}
 
     public static function fromRequest(ArticleRequest $request): self

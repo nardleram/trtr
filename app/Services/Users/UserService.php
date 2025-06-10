@@ -2,9 +2,12 @@
 
 namespace App\Services\Users;
 
+use App\DataTransferObjects\UpdateUserDto;
 use App\DataTransferObjects\UserDto;
+use App\Enums\UserRole;
 use App\Models\User;
 use App\Notifications\NewRegistrant;
+use Hash;
 use Illuminate\Support\Facades\Notification;
 
 class UserService
@@ -18,18 +21,17 @@ class UserService
             'role_id' => $dto->role_id
         ]);
 
-        Notification::send(User::where('email', 'toby@truthtransparent.com')->first(), new NewRegistrant($user));
+        $user ?? Notification::send(User::where('role_id', UserRole::Admin->value)->get(), new NewRegistrant($user));
 
         return $user;
     }
 
-    public function update(User $user, UserDto $dto): User
+    public function update(User $user, UpdateUserDto $dto): User
     {
         return tap($user)->update([
             'name' => $dto->name,
             'email' => $dto->email,
-            'password' => $dto->password,
-            'role_id' => $dto->role_id
+            'password' => $dto->newpassword ? $dto->newpassword : $dto->password,
         ]);
     }
 }

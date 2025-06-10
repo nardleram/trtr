@@ -60,7 +60,7 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 
 Route::delete('/logout', [AuthController::class, 'destroy'])->name('logout')->middleware('auth');
 Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('users.edit')->middleware(['auth', 'verified']);
-Route::patch('/user/update', [UserController::class, 'update'])->name('users.update')->middleware(['auth', 'verified']);
+Route::put('/user/{user}/update', [UserController::class, 'update'])->name('users.update')->middleware(['auth', 'verified']);
 
 // ARTICLES
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');

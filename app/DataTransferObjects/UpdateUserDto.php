@@ -2,24 +2,24 @@
 
 namespace App\DataTransferObjects;
 
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\UpdateUserRequest;
 
-readonly class UserDto
+readonly class UpdateUserDto
 {
     public function __construct(
         public readonly string $name,
         public readonly string $email,
         public readonly string $password,
-        public readonly int $role_id
+        public readonly ?string $newpassword
     ) {}
 
-    public static function fromRequest(UserRequest $request): self
+    public static function fromRequest(UpdateUserRequest $request): self
     {
         return new self(
             name: $request->validated('name'),
             email: $request->validated('email'),
             password: $request->validated('password'),
-            role_id: $request->validated('role_id'),
+            newpassword: $request->validated('newpassword'),
         );
     }
 }

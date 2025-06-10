@@ -2,6 +2,8 @@
 
 @section('content')
 
+<x-popup></x-popup>
+
 <div class="max-w-[1240px] mx-auto grid grid-cols-12 gap-4 mt-[135px] smArticles:mt-[155px] md:mt-[220px] px-2 smArticles:px-12 md:px-20 lg:px-32">
     <div class="col-span-full row-start-1 h-6">
         <div class="w-full h-fit justify-self-end items-baseline">
