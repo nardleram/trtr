@@ -39,7 +39,7 @@
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-@lang('Regards')<br><br>
+@lang('Subtle and perhaps even furtive regards,')<br><br>
 <img style="height: 3.5rem" src="{{ $message->embed(base_path('public/storage/images/truthtransparentSolo.svg')) }}" alt="logo">
 @endif
 
