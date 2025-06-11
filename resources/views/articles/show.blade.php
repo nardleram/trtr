@@ -89,6 +89,7 @@
                 </a>
             @endguest
         </div>
+        <p class="my-3 font-bold font-sans text-xs text-dBlue">COMMENT POLICY: Be civil, polite and respectful, or I will take whatever action I deem necessary.</p>
 
         @forelse ($article->comments as $comment)
         <div class="w-full mb-5 p-indent-{{ $comment->indent_level > 2 ? 2 : $comment->indent_level }} md:p-indent-{{ $comment->indent_level }}">
