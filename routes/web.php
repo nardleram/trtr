@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ArticleFilterController;
+use App\Http\Controllers\BoardMessageController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ImageController;
 use Artesaos\SEOTools\Facades\SEOMeta;
@@ -100,5 +101,15 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::get('/threads/{thread}/edit', [ThreadController::class, 'edit'])->name('thread.edit');
         Route::put('/threads/{thread}/update', [ThreadController::class, 'update'])->name('thread.update');
         Route::delete('/threads/{thread}/delete', [ThreadController::class, 'destroy'])->name('thread.delete');
+    });
+});
+
+// MESSAGE BOARD
+Route::get('/messages/kjhsdgiuy7y&65$53dgsadfjkgf', [BoardMessageController::class, 'index'])->name('messages.index');
+
+Route::group(['middleware' => ['auth', 'verified']], function () {
+    Route::group(['middleware' => 'is_author_admin'], function () {
+        Route::post('/messages/store', [BoardMessageController::class, 'store'])->name('messages.store');
+        Route::delete('/messages/{message}/delete', [BoardMessageController::class, 'destroy'])->name('messages.delete');
     });
 });
